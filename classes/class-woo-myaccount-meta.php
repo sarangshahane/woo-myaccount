@@ -1,8 +1,8 @@
 <?php
 /**
- * Cartflow default options.
+ * Woo_Myaccount_Loader default options.
  *
- * @package Cartflows
+ * @package Woo_Myaccount_Loader
  */
 
 /**
@@ -10,7 +10,7 @@
  *
  * @since 1.0.0
  */
-class Cartflows_Default_Meta {
+class Woo_Myaccount_Default_Meta {
 
 
 
@@ -872,4 +872,4 @@ class Cartflows_Default_Meta {
 /**
  *  Kicking this off by calling 'get_instance()' method
  */
-Cartflows_Default_Meta::get_instance();
+Woo_Myaccount_Default_Meta::get_instance();

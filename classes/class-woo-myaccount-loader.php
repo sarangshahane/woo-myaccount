@@ -87,9 +87,9 @@ if ( ! class_exists( 'Woo_Myaccount_Loader' ) ) {
 				self::$instance = new self();
 
 				/**
-				 * CartFlows loaded.
+				 * My Account loaded.
 				 *
-				 * Fires when Cartflows was fully loaded and instantiated.
+				 * Fires when My Account was fully loaded and instantiated.
 				 *
 				 * @since 1.0.0
 				 */
@@ -132,7 +132,7 @@ if ( ! class_exists( 'Woo_Myaccount_Loader' ) ) {
 
 			define( 'MY_ACCOUNT_POST_TYPE', 'woo_myaccount' );
 
-			define( 'CARTFLOWS_TAXONOMY_STEP_FLOW', 'woo_myaccount_tex' );
+			define( 'MY_ACCOUNT_TAXONOMY', 'woo_myaccount_tex' );
 			
 		}
 
@@ -147,15 +147,13 @@ if ( ! class_exists( 'Woo_Myaccount_Loader' ) ) {
 
 			$this->load_helper_files_components();
 			$this->load_core_files();
-			$this->load_core_components();
-
+			
 			add_action( 'wp_loaded', array( $this, 'initialize' ) );
-			}
 
 			/**
-			 * CartFlows Init.
+			 * Woo Myaccount Init.
 			 *
-			 * Fires when Cartflows is instantiated.
+			 * Fires when Woo Myaccount is instantiated.
 			 *
 			 * @since 1.0.0
 			 */
@@ -185,9 +183,8 @@ if ( ! class_exists( 'Woo_Myaccount_Loader' ) ) {
 			/* Meta Default Values */
 			include_once MY_ACCOUNT_DIR . 'classes/class-woo-myaccount-default-meta.php';
 
-			$this->utils   = Cartflows_Utils::get_instance();
-			$this->session = Cartflows_Session::get_instance();
-			$this->options = Cartflows_Default_Meta::get_instance();
+			$this->utils   = Woo_Myaccount_Utils::get_instance();
+			$this->options = Woo_Myaccount_Default_Meta::get_instance();
 		}
 
 		/**
@@ -198,7 +195,7 @@ if ( ! class_exists( 'Woo_Myaccount_Loader' ) ) {
 		 * @return void
 		 */
 		function initialize() {
-			$this->assets_vars = $this->utils->get_assets_path();
+			$this->assets_vars = $this->utils->get_woo_myaccount_assets_path();
 		}
 
 		/**
@@ -211,29 +208,16 @@ if ( ! class_exists( 'Woo_Myaccount_Loader' ) ) {
 		function load_core_files() {
 
 			/* Admin Settings */
-			include_once MY_ACCOUNT_DIR . 'classes/class-cartflows-admin.php';
+			include_once MY_ACCOUNT_DIR . 'classes/class-woo-myaccount-admin.php';
 
-		}
-
-		/**
-		 * Load Core Components.
-		 *
-		 * @since 1.0.0
-		 *
-		 * @return void
-		 */
-		function load_core_components() {
-
-			$this->meta   = Cartflows_Meta_Fields::get_instance();
-			$this->flow   = Cartflows_Flow_Frontend::get_instance();
 		}
 
 		
 		/**
-		 * Load CartFlows Pro Text Domain.
+		 * Load Woo My Account Text Domain.
 		 * This will load the translation textdomain depending on the file priorities.
-		 *      1. Global Languages /wp-content/languages/cartflows/ folder
-		 *      2. Local dorectory /wp-content/plugins/cartflows/languages/ folder
+		 *      1. Global Languages /wp-content/languages/woo-myaccount/ folder
+		 *      2. Local dorectory /wp-content/plugins/woo-myaccount/languages/ folder
 		 *
 		 * @since 1.0.3
 		 * @return void
@@ -306,7 +290,7 @@ if ( ! class_exists( 'Woo_Myaccount_Loader' ) ) {
 
 			$class = 'notice notice-warning';
 			/* translators: %s: html tags */
-			$message = sprintf( __( 'This %1$sCartFlows%2$s page requires %1$sWooCommerce%2$s plugin installed & activated.', 'cartflows' ), '<strong>', '</strong>' );
+			$message = sprintf( __( 'This %1$sCustom My Account for Woocommerce%2$s page requires %1$sWooCommerce%2$s plugin installed & activated.', 'cartflows' ), '<strong>', '</strong>' );
 
 			$plugin = 'woocommerce/woocommerce.php';
 

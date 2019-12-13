@@ -2,7 +2,7 @@
 /**
  * Utils.
  *
- * @package CARTFLOWS
+ * @package Woo_Myaccount_Loader
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -73,7 +73,7 @@ class Woo_Myaccount_Utils {
 	 * @return array
 	 * @since 1.1.6
 	 */
-	function get_assets_path() {
+	function get_woo_myaccount_assets_path() {
 
 		$rtl = '';
 
