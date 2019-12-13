@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: WooCommerce My Account
+ * Plugin Name: Customize WooCommerce My Account
  * Plugin URI: 
  * Description: Customize My Account area on your website.
  * Version: 0.0.1

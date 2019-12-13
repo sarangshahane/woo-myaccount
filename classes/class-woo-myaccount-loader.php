@@ -127,7 +127,7 @@ if ( ! class_exists( 'Woo_Myaccount_Loader' ) ) {
 			define( 'MY_ACCOUNT_DIR', plugin_dir_path( MY_ACCOUNT_FILE ) );
 			define( 'MY_ACCOUNT_URL', plugins_url( '/', MY_ACCOUNT_FILE ) );
 			define( 'MY_ACCOUNT_VER', '0.0.1' );
-			define( 'MY_ACCOUNT_SLUG', 'woo-myaccount' );
+			define( 'MY_ACCOUNT_SLUG', 'woo_myaccount' );
 			define( 'MY_ACCOUNT_SETTINGS', 'wpp_myaccount_settings' );
 
 			define( 'MY_ACCOUNT_POST_TYPE', 'woo_myaccount' );
