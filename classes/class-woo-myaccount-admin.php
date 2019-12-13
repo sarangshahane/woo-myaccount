@@ -54,6 +54,7 @@ class Woo_Myaccount_Admin {
 		// add_action( 'admin_body_class', __CLASS__ . '::add_admin_body_class' );
 
 		add_filter( 'plugin_action_links_' . MY_ACCOUNT_BASE, __CLASS__ . '::add_action_links' );
+		add_filter( 'plugin_row_meta', __CLASS__ . '::add_custom_action_link', 10, 2 );
 
 	}
 
@@ -96,11 +97,32 @@ class Woo_Myaccount_Admin {
 	 */
 	public static function add_action_links( $links ) {
 		$mylinks = array(
-			'<a href="' . admin_url( 'admin.php?page=' . MY_ACCOUNT_SETTINGS ) . '">Settings</a>',
-			'<a target="_blank" href="' . esc_url( 'http://sarangshahane.in/' ) . '">Docs</a>',
+			// '<a href="' . admin_url( 'admin.php?page=' . MY_ACCOUNT_SETTINGS ) . '">Settings</a>',
+			'<a target="_blank" href="' . esc_url( '#' ) . '">Docs</a>',
 		);
 
 		return array_merge( $links, $mylinks );
+	}
+
+
+ 	/**
+	 * Show action links on plugin page in the description column.
+	 *
+	 * @param  array $links links.
+	 * @param  string $file link.
+	 * @return array
+	 */
+	public static function add_custom_action_link( $links, $file ) {  
+		
+	    if ( plugin_basename( MY_ACCOUNT_FILE ) == $file ) {
+
+	        $row_meta = array(
+	          'support'    => '<a href="' . esc_url( 'https://wordpress.org/plugins/' ) . '" target="_blank" aria-label="' . esc_attr__( 'Need support for Customize My Account area plugin', 'woo-myaccount' ) . '">' . esc_html__( 'Support', 'woo-myaccount' ) . '</a>'
+	        );
+	 
+	        return array_merge( $links, $row_meta );
+	    }
+	    return (array) $links;
 	}
 
 	/**

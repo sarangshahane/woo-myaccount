@@ -148,7 +148,18 @@ if ( ! class_exists( 'Woo_Myaccount_Loader' ) ) {
 			$this->load_helper_files_components();
 			$this->load_core_files();
 			
+
 			add_action( 'wp_loaded', array( $this, 'initialize' ) );
+
+			if ( ! $this->is_woo_active ) {
+				
+				require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+
+				add_action( 'admin_notices', array( $this, 'fails_to_load' ) );
+
+				deactivate_plugins( 'woo-myaccount/woo-myaccount.php', true );
+
+			}
 
 			/**
 			 * Woo Myaccount Init.
@@ -279,10 +290,6 @@ if ( ! class_exists( 'Woo_Myaccount_Loader' ) ) {
 		public function fails_to_load() {
 
 			$screen = get_current_screen();
-
-			if ( ! wma()->utils->check_is_woo_required_page() ) {
-				return;
-			}
 
 			$skip_notice = false;
 
