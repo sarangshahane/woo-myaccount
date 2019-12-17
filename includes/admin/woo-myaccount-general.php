@@ -17,17 +17,55 @@
 			<div id="post-body-content">
 				<div class="postbox introduction">
 					<h2 class="hndle wcf-normal-cusror ui-sortable-handle">
-						<span><?php _e( 'Getting Started', 'cartflows' ); ?></span>
+						<span><?php _e( 'Customize My Account Menu on Your Site', 'cartflows' ); ?></span>
 					</h2>
 					<div class="inside">
-						<div class="iframe-wrap">
-							<iframe width="560" height="315" src="https://www.youtube.com/embed/SlE0moPKjMY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-						</div>
 						<p>
-						<?php
-							esc_attr_e( 'Modernizing WordPress eCommerce!', 'cartflows' );
-						?>
+							Here you can add/update/disable the menus of My Account setion on your site.
 						</p>
+
+						<?php 
+							$action     = filter_input( INPUT_GET, 'action', FILTER_SANITIZE_STRING );
+
+							if ( ! $action ) {
+								$action                 = 'menu';
+								$active_tab_menu        = '';
+								$active_other_tab         = '';
+								$active_email_templates = '';
+							}
+
+							switch ( $action ) {
+								case 'menu':
+									$active_tab_menu = 'nav-tab-active';
+									break;
+								case 'other':
+									$active_other_tab = 'nav-tab-active';
+									break;
+								
+								default:
+									$active_other_tab = 'nav-tab-active';
+									break;
+							}
+					        // phpcs:disable
+					     ?>
+
+						<div class="nav-tab-wrapper woo-nav-tab-wrapper">
+						<?php 
+								$url = add_query_arg( array(
+			                		'page' => MY_ACCOUNT_SLUG,
+			                		'action' => 'menu'
+			            		), admin_url( '/admin.php' ) )
+			            ?>
+							<a href="<?php echo $url; ?>" class="nav-tab <?php if ( isset( $active_tab_menu ) ) { echo $active_tab_menu;}?>">Display Options</a>
+
+						<?php 
+								$url = add_query_arg( array(
+			                		'page' => MY_ACCOUNT_SLUG,
+			                		'action' => 'other'
+			            		), admin_url( '/admin.php' ) )
+			            ?>
+    						<a href="<?php echo $url; ?>" class="nav-tab <?php if ( isset( $active_other_tab ) ) { echo $active_other_tab;}?>">Social Options</a>
+						</div>
 					</div>
 				</div>
 				

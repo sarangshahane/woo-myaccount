@@ -180,7 +180,7 @@ class Woo_Myaccount_Admin {
 		// Enable header icon filter below.
 		$header_wrapper_class = apply_filters( 'cartflows_header_wrapper_class', array( $action ) );
 
-		include_once MY_ACCOUNT_DIR . 'includes/admin/cartflows-admin.php';
+		include_once MY_ACCOUNT_DIR . 'includes/admin/woo-myaccount-admin.php';
 	}
 
 	/**
@@ -198,7 +198,7 @@ class Woo_Myaccount_Admin {
 
 		$header_wrapper_class = apply_filters( 'cartflows_header_wrapper_class', array( $action ) );
 
-		include_once MY_ACCOUNT_DIR . 'includes/admin/cartflows-general.php';
+		include_once MY_ACCOUNT_DIR . 'includes/admin/woo-myaccount-general.php';
 	}
 
 	
