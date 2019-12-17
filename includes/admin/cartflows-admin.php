@@ -11,8 +11,8 @@
 		<div class="wcf-menu-page-header <?php echo esc_attr( implode( ' ', $header_wrapper_class ) ); ?>">
 			<div class="wcf-container wcf-flex">
 				<div class="wcf-title">
-					<span class="screen-reader-text"><?php echo CARTFLOWS_PLUGIN_NAME; ?></span>
-					<img class="wcf-logo" src="<?php echo CARTFLOWS_URL . 'assets/images/cartflows-logo.svg'; ?>" />
+					<span class="screen-reader-text"><?php echo MY_ACCOUNT_PLUGIN_NAME; ?></span>
+					<img class="wcf-logo" src="<?php echo MY_ACCOUNT_URL . 'assets/images/'; ?>" />
 				</div>
 				<div class="wcf-top-links">
 					<?php

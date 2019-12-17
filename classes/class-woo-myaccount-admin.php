@@ -158,7 +158,7 @@ class Woo_Myaccount_Admin {
 			'manage_options',
 			MY_ACCOUNT_SLUG,
 			__CLASS__ . '::render',
-			'data:image/svg+xml;base64,' . base64_encode( file_get_contents( MY_ACCOUNT_DIR . 'assets/images/cartflows-icon.svg' ) ),
+			'data:image/png;base64,' . base64_encode( file_get_contents( MY_ACCOUNT_DIR . 'assets/images/' ) ),
 			39.7
 		);
 
